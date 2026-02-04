@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Election Results | Blockchain Voting</title>
+
+  <link rel="stylesheet" href="../css/core.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/results.css">
+</head>
+
+<body id="results">
+  <div class="background-grid"></div>
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <div class="header-left">
+      <img src="../assets/emblem.svg" class="emblem" alt="Emblem">
+      <div class="title-block">
+        <h1>Electronic Voting System</h1>
+        <span>Live Election Results</span>
+      </div>
+    </div>
+
+    <div class="status-pill online">SYSTEM ONLINE</div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="panel results-panel">
+      <h2>📊 Election Results</h2>
+
+      <p class="results-note">
+        Results shown below are retrieved directly from the blockchain ledger.
+        Once published, they cannot be modified.
+      </p>
+
+      <div class="results-table">
+        <div class="result-row header">
+          <span>Candidate</span>
+          <span>Votes</span>
+        </div>
+
+        <div id="resultsContainer">
+          <div class="loading">Loading results...</div>
+        </div>
+      </div>
+
+      <div class="total-votes">
+        Total Votes Cast: <strong id="totalVotes">–</strong>
+      </div>
+
+      <p class="results-warning">
+        ℹ️ Results are visible only after polling is completed.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    UG Final Year Project • Blockchain Voting • 2026
+  </footer>
+
+  <!-- APP LOGIC (MUST LOAD AFTER DOM) -->
+  <script type="module" src="../scripts/app.js"></script>
+</body>
+</html>

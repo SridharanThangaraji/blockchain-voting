@@ -1,0 +1,47 @@
+/* results.css */
+
+.results-note {
+  margin: 12px 0 20px;
+  color: #c7d2ff;
+  font-size: 0.95rem;
+}
+
+.results-table {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+.result-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 1rem;
+}
+
+.result-row.header {
+  font-weight: 600;
+  background: rgba(0,153,255,0.15);
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.loading {
+  padding: 20px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.total-votes {
+  margin-top: 18px;
+  font-size: 1.05rem;
+}
+
+.results-warning {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: #9fb4ff;
+}

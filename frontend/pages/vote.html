@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cast Your Vote | Blockchain Voting</title>
+
+  <link rel="stylesheet" href="../css/core.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/vote.css">
+
+  <script type="module" src="../scripts/app.js"></script>
+</head>
+
+<body>
+  <div class="background-grid"></div>
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <div class="header-left">
+      <img src="../assets/emblem.svg" class="emblem" alt="Emblem">
+      <div class="title-block">
+        <h1>Electronic Voting System</h1>
+        <span>Vote Casting Portal</span>
+      </div>
+    </div>
+
+    <div class="status-pill online">SYSTEM ONLINE</div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="panel">
+      <h2>🗳️ Cast Your Vote</h2>
+
+      <p class="vote-note">
+        Select one candidate.  
+        Each registered voter can vote <strong>only once</strong>.
+      </p>
+
+      <!-- Candidates -->
+      <div class="vote-grid">
+        <button class="vote-option" data-candidate="1">
+          🟦 Candidate A
+        </button>
+
+        <button class="vote-option" data-candidate="2">
+          🟥 Candidate B
+        </button>
+
+        <button class="vote-option" data-candidate="3">
+          🟩 Candidate C
+        </button>
+      </div>
+
+      <div class="vote-status"></div>
+
+      <p class="vote-warning">
+        ⚠️ Once submitted, a vote cannot be changed.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    UG Final Year Project • Blockchain Voting • 2026
+  </footer>
+</body>
+</html>

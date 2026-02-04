@@ -1,0 +1,27 @@
+/* verify.css */
+
+.verify-note {
+  margin: 12px 0 20px;
+  font-size: 0.95rem;
+  color: #c7d2ff;
+  line-height: 1.5;
+}
+
+.verify-status {
+  margin-top: 16px;
+  font-size: 0.95rem;
+}
+
+.verify-status.success {
+  color: #8dffb0;
+}
+
+.verify-status.error {
+  color: #ff9a9a;
+}
+
+.verify-warning {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: #9fb4ff;
+}

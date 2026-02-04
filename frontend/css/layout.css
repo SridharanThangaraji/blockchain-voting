@@ -1,0 +1,62 @@
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.emblem {
+  width: 48px;
+  height: 48px;
+}
+
+.title-block h1 {
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.title-block span {
+  font-size: 0.85rem;
+  color: #9fb4ff;
+}
+
+.hero {
+  padding: 60px 24px 40px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: auto;
+  line-height: 1.6;
+  color: #c9d6ff;
+}
+
+.info-strip {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  font-size: 0.85rem;
+  background: rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}

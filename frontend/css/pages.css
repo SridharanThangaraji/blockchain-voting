@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a1a3f, #020b1e);
+  color: #fff;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+/* Headers */
+.header, .simple-header {
+  padding: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.simple-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  padding: 28px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+
+.card:hover {
+  background: rgba(0,153,255,0.25);
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+/* Panels */
+.panel {
+  max-width: 420px;
+  margin: 40px auto;
+  background: rgba(255,255,255,0.08);
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.panel input, .panel button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+.vote-grid button {
+  margin-top: 12px;
+  font-size: 1.1rem;
+}
+
+.note {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 14px;
+  opacity: 0.7;
+}
+/* ========= REGISTER PAGE ========= */
+.register-note {
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  color: #9fb4ff;
+}
+
+/* ========= VOTE PAGE ========= */
+.vote-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.vote-option {
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.12);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.vote-option:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ========= RESULTS PAGE ========= */
+.result-box {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.result-row {
+  margin: 10px 0;
+}

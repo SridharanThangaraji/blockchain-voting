@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verify Vote | Blockchain Voting</title>
+
+  <link rel="stylesheet" href="../css/core.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/verify.css">
+
+  <script type="module" src="../scripts/app.js"></script>
+</head>
+
+<body>
+  <div class="background-grid"></div>
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <div class="header-left">
+      <img src="../assets/emblem.svg" class="emblem" alt="Emblem">
+      <div class="title-block">
+        <h1>Electronic Voting System</h1>
+        <span>Vote Verification Portal</span>
+      </div>
+    </div>
+
+    <div class="status-pill online">SYSTEM ONLINE</div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="panel">
+      <h2>🔍 Verify Your Vote</h2>
+
+      <p class="verify-note">
+        Enter your wallet address to verify that your vote exists
+        in the blockchain ledger.  
+        No personal data is revealed.
+      </p>
+
+      <form id="verifyForm">
+        <label for="wallet">Wallet Address</label>
+        <input
+          type="text"
+          id="wallet"
+          placeholder="0xABC123..."
+          required
+        >
+
+        <button type="submit">
+          Verify Vote
+        </button>
+      </form>
+
+      <div class="verify-status"></div>
+
+      <p class="verify-warning">
+        ℹ️ Vote contents remain secret.  
+        Only confirmation of participation is shown.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    UG Final Year Project • Blockchain Voting • 2026
+  </footer>
+</body>
+</html>

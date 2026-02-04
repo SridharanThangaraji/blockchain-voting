@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "In Review-1, no backend interaction with the blockchain is required.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "ethers": "^5.8.0",
+    "express": "^5.2.1",
+    "ganache": "^7.9.2"
+  }
+}

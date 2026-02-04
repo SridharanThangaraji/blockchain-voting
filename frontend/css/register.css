@@ -1,0 +1,45 @@
+/* register.css */
+
+.register-note {
+  margin: 14px 0 18px;
+  font-size: 0.9rem;
+  color: #9fb4ff;
+  line-height: 1.5;
+}
+
+.panel h2 {
+  margin-bottom: 8px;
+}
+
+form label {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 14px;
+  opacity: 0.85;
+}
+
+form input {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+form input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+form button {
+  margin-top: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg,#2563eb,#1e40af);
+}
+
+form button.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.form-status {
+  margin-top: 14px;
+  font-size: 0.9rem;
+}

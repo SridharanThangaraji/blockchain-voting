@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>National Blockchain Voting System</title>
+  <link rel="stylesheet" href="css/core.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <script type="module" src="../scripts/app.js"></script>
+  <link rel="icon" href="assets/emblem.svg" />
+</head>
+<body id="register">
+  <!-- Background grid -->
+  <div class="background-grid"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="top-header">
+    <div class="header-left">
+      <img src="assets/emblem.svg" alt="National Emblem" class="emblem" />
+      <div class="title-block">
+        <h1>National Electronic Voting System</h1>
+        <span>Blockchain-Secured Democratic Infrastructure</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="status-pill online">SYSTEM ONLINE</div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <h2>One Citizen. One Vote. Immutable.</h2>
+    <p>
+      This platform enables transparent, tamper-proof, and auditable elections
+      using blockchain technology.  
+      Every vote is cryptographically secured and publicly verifiable.
+    </p>
+  </section>
+
+  <!-- ================= MAIN DASHBOARD ================= -->
+  <main class="dashboard">
+
+    <!-- Registration -->
+    <a href="pages/register.html" class="card">
+      <div class="card-icon">🧾</div>
+      <h3>Voter Registration</h3>
+      <p>
+        Enroll citizens into the electoral ledger using verified wallet identity.
+      </p>
+      <span class="card-status">AVAILABLE</span>
+    </a>
+
+    <!-- Voting -->
+    <a href="pages/vote.html" class="card">
+      <div class="card-icon">🗳️</div>
+      <h3>Cast Your Vote</h3>
+      <p>
+        Vote securely through blockchain-recorded transactions.
+        One vote per citizen.
+      </p>
+      <span class="card-status warning">RESTRICTED</span>
+    </a>
+
+    <!-- Verification -->
+    <a href="pages/verify.html" class="card">
+      <div class="card-icon">🔍</div>
+      <h3>Verify Vote</h3>
+      <p>
+        Validate your vote’s presence in the blockchain ledger using hashes.
+      </p>
+      <span class="card-status locked">LOCKED</span>
+    </a>
+
+    <!-- Results -->
+    <a href="pages/results.html" class="card">
+      <div class="card-icon">📊</div>
+      <h3>Live Election Results</h3>
+      <p>
+        View immutable, real-time election results once polling closes.
+      </p>
+      <span class="card-status locked">LOCKED</span>
+    </a>
+
+  </main>
+
+  <!-- ================= INFO STRIP ================= -->
+  <section class="info-strip">
+    <div>
+      <strong>Security:</strong> SHA-256 · ECDSA · Smart Contracts
+    </div>
+    <div>
+      <strong>Network:</strong> Ethereum (Private / Local)
+    </div>
+    <div>
+      <strong>Status:</strong> Academic Prototype
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>
+      © 2026 · Undergraduate Final Year Project  
+      <br />
+      Department of Computer Science
+    </p>
+  </footer>
+
+  <!-- Core UI logic -->
+  <script type="module" src="scripts/config.js"></script>
+  <script type="module" src="scripts/ui.js"></script>
+</body>
+</html>

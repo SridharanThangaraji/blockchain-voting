@@ -1,0 +1,46 @@
+/* vote.css */
+
+.vote-note {
+  margin: 12px 0 20px;
+  font-size: 0.95rem;
+  color: #c7d2ff;
+  line-height: 1.5;
+}
+
+.vote-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.vote-option {
+  padding: 18px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.vote-option:hover {
+  transform: translateY(-2px);
+  background: rgba(0,153,255,0.35);
+}
+
+.vote-option.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.vote-status {
+  margin-top: 16px;
+  font-size: 0.95rem;
+}
+
+.vote-warning {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: #ffb4b4;
+}

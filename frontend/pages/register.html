@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Voter Registration | Blockchain Voting</title>
+
+  <link rel="stylesheet" href="../css/core.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/register.css">
+</head>
+
+<body id="register">
+  <div class="background-grid"></div>
+
+  <header class="top-header">
+    <div class="header-left">
+      <img src="../assets/emblem.svg" class="emblem" alt="Emblem">
+      <div class="title-block">
+        <h1>Electronic Voting System</h1>
+        <span>Voter Registration Portal</span>
+      </div>
+    </div>
+
+    <div class="status-pill online">SYSTEM ONLINE</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="panel">
+      <h2>🧾 Voter Registration</h2>
+
+      <p class="register-note">
+        This registration verifies your identity before you are allowed to
+        participate in the blockchain-based voting process.
+      </p>
+
+      <form>
+        <label for="wallet">Wallet Address</label>
+        <input
+          type="text"
+          id="wallet"
+          placeholder="0xABC123... (Your blockchain wallet address)"
+        >
+
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your full name"
+        >
+
+        <label for="id">Government ID Number</label>
+        <input
+          type="text"
+          id="id"
+          placeholder="Example: Aadhaar / Voter ID"
+        >
+
+        <label for="region">Region / Constituency</label>
+        <input
+          type="text"
+          id="region"
+          placeholder="Your voting constituency"
+        >
+
+        <button type="button">
+          Submit Registration
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    UG Final Year Project • Secure Blockchain Voting • 2026
+  </footer>
+
+  <!-- APP LOGIC (MUST BE AT END) -->
+  <script type="module" src="../scripts/app.js"></script>
+</body>
+</html>
