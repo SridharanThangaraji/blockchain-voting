@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Verify Vote | Blockchain Voting</title>
@@ -13,7 +14,7 @@
   <script type="module" src="../scripts/app.js"></script>
 </head>
 
-<body>
+<body id="verify">
   <div class="background-grid"></div>
 
   <!-- HEADER -->
@@ -34,30 +35,25 @@
     <section class="panel">
       <h2>🔍 Verify Your Vote</h2>
 
-      <p class="verify-note">
+      <p class="note">
         Enter your wallet address to verify that your vote exists
-        in the blockchain ledger.  
+        in the blockchain ledger.
         No personal data is revealed.
       </p>
 
       <form id="verifyForm">
         <label for="wallet">Wallet Address</label>
-        <input
-          type="text"
-          id="wallet"
-          placeholder="0xABC123..."
-          required
-        >
+        <input type="text" id="wallet" placeholder="0xABC123..." required>
 
-        <button type="submit">
-          Verify Vote
+        <button type="submit" class="primary">
+          VERIFY VOTE
         </button>
       </form>
 
-      <div class="verify-status"></div>
+      <div class="status-msg"></div>
 
-      <p class="verify-warning">
-        ℹ️ Vote contents remain secret.  
+      <p class="note" style="margin-top: 40px; color: var(--text-dim);">
+        ℹ️ Vote contents remain secret.
         Only confirmation of participation is shown.
       </p>
     </section>
@@ -68,4 +64,5 @@
     UG Final Year Project • Blockchain Voting • 2026
   </footer>
 </body>
+
 </html>

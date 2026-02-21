@@ -31,12 +31,12 @@
     <section class="panel">
       <h2>🧾 Voter Registration</h2>
 
-      <p class="register-note">
+      <p class="note">
         This registration verifies your identity before you are allowed to
         participate in the blockchain-based voting process.
       </p>
 
-      <form>
+      <form id="registerForm">
         <label for="wallet">Wallet Address</label>
         <input
           type="text"
@@ -58,17 +58,12 @@
           placeholder="Example: Aadhaar / Voter ID"
         >
 
-        <label for="region">Region / Constituency</label>
-        <input
-          type="text"
-          id="region"
-          placeholder="Your voting constituency"
-        >
-
-        <button type="button">
-          Submit Registration
+        <button type="button" id="registerBtn" class="primary">
+          REGISTER CITIZEN
         </button>
       </form>
+
+      <div class="status-msg"></div>
     </section>
   </main>
 

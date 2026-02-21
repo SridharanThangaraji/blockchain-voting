@@ -1,6 +1,6 @@
 // scripts/api.js
 
-const BASE = "http://localhost:3000/api";
+const BASE = `${window.location.origin}/api`;
 
 async function request(path, method = "GET", body) {
   const res = await fetch(`${BASE}${path}`, {
@@ -10,8 +10,14 @@ async function request(path, method = "GET", body) {
   });
 
   if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.message || "Request failed");
+    let message = "Request failed";
+    try {
+      const err = await res.json();
+      if (err && err.message) message = err.message;
+    } catch (_) {
+      message = res.statusText || `Error ${res.status}`;
+    }
+    throw new Error(message);
   }
 
   return res.json();
@@ -21,12 +27,24 @@ export const api = {
   register: (wallet) =>
     request("/register", "POST", { wallet }),
 
-  vote: (candidate) =>
-    request("/vote", "POST", { candidate }),
+  candidates: () =>
+    request("/candidates"),
+
+  vote: (candidateId, wallet) =>
+    request("/vote", "POST", { candidate: candidateId, wallet }),
 
   verify: (wallet) =>
     request("/verify", "POST", { wallet }),
 
   results: () =>
     request("/results"),
+
+  status: () =>
+    request("/status"),
+
+  startVoting: () =>
+    request("/admin/start", "POST"),
+
+  endVoting: () =>
+    request("/admin/end", "POST"),
 };

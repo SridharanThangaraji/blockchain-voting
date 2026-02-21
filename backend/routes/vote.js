@@ -8,18 +8,18 @@ const votingService = require("../services/voting.service");
 */
 router.post("/", async (req, res) => {
   try {
-    const { candidate } = req.body;
+    const { candidate, wallet } = req.body;
 
     // Validate input
-    if (candidate === undefined) {
+    if (candidate === undefined || !wallet) {
       return res.status(400).json({
         success: false,
-        message: "Candidate ID is required"
+        message: "Candidate ID and Wallet Address are required"
       });
     }
 
     // Delegate voting logic to service
-    await votingService.castVote(candidate);
+    await votingService.castVote(candidate, wallet);
 
     res.json({
       success: true,

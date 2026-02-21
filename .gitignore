@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+backend/.env
+
+# Build / artifacts
+smart-contracts/artifacts/
+smart-contracts/cache/
+dist/
+build/
+
+# Logs and temp
+*.log
+npm-debug.log*
+.DS_Store
+*.swp
+*.swo
+.~lock.*
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# OS
+Thumbs.db
+
+# Optional: keep ppt in docs but ignore temp/backup
+# docs/ppt/*.tmp

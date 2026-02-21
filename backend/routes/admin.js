@@ -74,4 +74,34 @@ router.post("/end", async (req, res) => {
   }
 });
 
+/*
+  POST /api/admin/candidate
+  Add a new candidate
+*/
+router.post("/candidate", async (req, res) => {
+  try {
+    const { name } = req.body;
+
+    if (!name) {
+      return res.status(400).json({
+        success: false,
+        message: "Candidate name is required"
+      });
+    }
+
+    await votingService.addCandidate(name);
+
+    res.json({
+      success: true,
+      message: `Candidate ${name} added successfully`
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
 module.exports = router;

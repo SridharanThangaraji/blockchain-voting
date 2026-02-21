@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,10 +10,10 @@
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/pages.css" />
   <link rel="stylesheet" href="css/index.css" />
-  <script type="module" src="../scripts/app.js"></script>
   <link rel="icon" href="assets/emblem.svg" />
 </head>
-<body id="register">
+
+<body id="home">
   <!-- Background grid -->
   <div class="background-grid"></div>
 
@@ -36,7 +37,7 @@
     <h2>One Citizen. One Vote. Immutable.</h2>
     <p>
       This platform enables transparent, tamper-proof, and auditable elections
-      using blockchain technology.  
+      using blockchain technology.
       Every vote is cryptographically secured and publicly verifiable.
     </p>
   </section>
@@ -45,7 +46,7 @@
   <main class="dashboard">
 
     <!-- Registration -->
-    <a href="pages/register.html" class="card">
+    <a href="pages/register.html" class="glass-card card">
       <div class="card-icon">🧾</div>
       <h3>Voter Registration</h3>
       <p>
@@ -55,7 +56,7 @@
     </a>
 
     <!-- Voting -->
-    <a href="pages/vote.html" class="card">
+    <a href="pages/vote.html" class="glass-card card">
       <div class="card-icon">🗳️</div>
       <h3>Cast Your Vote</h3>
       <p>
@@ -66,7 +67,7 @@
     </a>
 
     <!-- Verification -->
-    <a href="pages/verify.html" class="card">
+    <a href="pages/verify.html" class="glass-card card">
       <div class="card-icon">🔍</div>
       <h3>Verify Vote</h3>
       <p>
@@ -76,9 +77,9 @@
     </a>
 
     <!-- Results -->
-    <a href="pages/results.html" class="card">
+    <a href="pages/results.html" class="glass-card card">
       <div class="card-icon">📊</div>
-      <h3>Live Election Results</h3>
+      <h3>Live Results</h3>
       <p>
         View immutable, real-time election results once polling closes.
       </p>
@@ -90,27 +91,32 @@
   <!-- ================= INFO STRIP ================= -->
   <section class="info-strip">
     <div>
-      <strong>Security:</strong> SHA-256 · ECDSA · Smart Contracts
+      <strong>Security</strong> SHA-256 · ECDSA · Smart Contracts
     </div>
     <div>
-      <strong>Network:</strong> Ethereum (Private / Local)
+      <strong>Network</strong> Ethereum (EVM Compatible)
     </div>
     <div>
-      <strong>Status:</strong> Academic Prototype
+      <strong>Status</strong> Secure Academic Prototype
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <p>
-      © 2026 · Undergraduate Final Year Project  
+      © 2026 · Undergraduate Final Year Project
       <br />
       Department of Computer Science
     </p>
   </footer>
 
+  <!-- Admin Controls (Context Aware) -->
+  <div id="adminPanel" class="admin-panel" style="display: none;">
+    <button id="startVotingBtn" class="primary">START VOTING PHASE</button>
+  </div>
+
   <!-- Core UI logic -->
-  <script type="module" src="scripts/config.js"></script>
-  <script type="module" src="scripts/ui.js"></script>
+  <script type="module" src="scripts/app.js"></script>
 </body>
+
 </html>

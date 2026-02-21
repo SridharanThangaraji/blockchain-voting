@@ -1,69 +1,86 @@
 .status-pill {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .status-pill.online {
-  background: #0bbcd6;
-  color: #002733;
+  background: rgba(0, 210, 255, 0.1);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
 
 .dashboard {
-  padding: 40px;
+  padding: 60px 80px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
 }
 
 .card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 30px 26px;
   text-decoration: none;
   color: white;
   position: relative;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: 1px solid rgba(255,255,255,0.14);
+  overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,153,255,0.35);
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(0, 210, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card-icon {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
+  font-size: 3.5rem;
+  margin-bottom: 24px;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
 
 .card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
 }
 
 .card p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #c3d3ff;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-dim);
 }
 
 .card-status {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  font-size: 0.7rem;
-  padding: 4px 10px;
-  border-radius: 12px;
-  background: #2ecc71;
+  top: 24px;
+  right: 24px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: var(--success);
+  color: #000;
 }
 
 .card-status.warning {
-  background: #f1c40f;
-  color: #3a2f00;
+  background: var(--warning);
 }
 
 .card-status.locked {
-  background: #7f8c8d;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-dim);
 }

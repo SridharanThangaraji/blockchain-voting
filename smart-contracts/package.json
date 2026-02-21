@@ -1,9 +1,11 @@
 {
   "name": "smart-contracts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Solidity voting contract and deployment",
   "main": "index.js",
   "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "node scripts/deploy-ganache.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

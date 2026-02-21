@@ -1,0 +1,21 @@
+{
+  "name": "blockchain-voting",
+  "version": "1.0.0",
+  "description": "Decentralized blockchain-based voting system with Ethereum smart contracts",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/run-all.js",
+    "dev": "node scripts/run-all.js",
+    "install:all": "npm install && cd backend && npm install && cd ../smart-contracts && npm install",
+    "backend": "node backend/index.js",
+    "contract:compile": "cd smart-contracts && npx hardhat compile",
+    "contract:deploy": "node scripts/deploy-and-configure.js",
+    "init-demo": "node backend/init-system.js",
+    "test": "NODE_PATH=backend/node_modules node tests/system-test.js",
+    "test:backend": "cd backend && npm test"
+  },
+  "keywords": ["blockchain", "voting", "ethereum", "solidity", "ganache"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
+}

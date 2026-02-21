@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Cast Your Vote | Blockchain Voting</title>
@@ -13,7 +14,7 @@
   <script type="module" src="../scripts/app.js"></script>
 </head>
 
-<body>
+<body id="vote">
   <div class="background-grid"></div>
 
   <!-- HEADER -->
@@ -34,29 +35,19 @@
     <section class="panel">
       <h2>🗳️ Cast Your Vote</h2>
 
-      <p class="vote-note">
-        Select one candidate.  
+      <p class="note">
+        Select one candidate.
         Each registered voter can vote <strong>only once</strong>.
       </p>
 
-      <!-- Candidates -->
-      <div class="vote-grid">
-        <button class="vote-option" data-candidate="1">
-          🟦 Candidate A
-        </button>
-
-        <button class="vote-option" data-candidate="2">
-          🟥 Candidate B
-        </button>
-
-        <button class="vote-option" data-candidate="3">
-          🟩 Candidate C
-        </button>
+      <!-- Dynamic Grid -->
+      <div id="voteGrid" class="vote-grid">
+        <div class="status-msg">Loading candidates...</div>
       </div>
 
-      <div class="vote-status"></div>
+      <div id="voteStatus" class="status-msg"></div>
 
-      <p class="vote-warning">
+      <p class="note" style="margin-top: 40px; font-weight: 700; color: var(--warning);">
         ⚠️ Once submitted, a vote cannot be changed.
       </p>
     </section>
@@ -67,4 +58,5 @@
     UG Final Year Project • Blockchain Voting • 2026
   </footer>
 </body>
+
 </html>

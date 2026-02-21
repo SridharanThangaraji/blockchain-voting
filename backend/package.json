@@ -1,16 +1,19 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "In Review-1, no backend interaction with the blockchain is required.",
+  "description": "Express API and blockchain bridge for blockchain voting",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.0",
     "cors": "^2.8.6",
+    "dotenv": "^16.3.1",
     "ethers": "^5.8.0",
     "express": "^5.2.1",
     "ganache": "^7.9.2"

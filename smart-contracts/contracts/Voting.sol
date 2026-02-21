@@ -1,107 +1,126 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+/**
+ * @title Secure Voting System
+ * @dev A blockchain-based voting system with dynamic candidate management and admin controls.
+ */
 contract Voting {
-    /* ========== ADMIN ========== */
+    /* ========== STATE VARIABLES ========== */
     address public admin;
+    
+    enum Phase { Registration, Voting, Ended }
+    Phase public currentPhase;
 
+    struct Candidate {
+        uint256 id;
+        string name;
+        uint256 voteCount;
+    }
+
+    struct Voter {
+        bool registered;
+        bool hasVoted;
+        uint256 votedCandidateId;
+    }
+
+    mapping(address => Voter) public voters;
+    Candidate[] public candidates;
+    uint256 public totalVotes;
+
+    /* ========== EVENTS ========== */
+    event VoterRegistered(address indexed voter);
+    event CandidateAdded(uint256 indexed id, string name);
+    event VoteCast(address indexed voter, uint256 indexed candidateId);
+    event PhaseChanged(Phase newPhase);
+
+    /* ========== ACCESS CONTROL ========== */
     modifier onlyAdmin() {
-        require(msg.sender == admin, "Only admin");
+        require(msg.sender == admin, "Access restricted to admin");
         _;
     }
 
     constructor() {
         admin = msg.sender;
+        currentPhase = Phase.Registration;
     }
 
-    /* ========== ELECTION STATE ========== */
-    enum Phase {
-        Registration,
-        Voting,
-        Ended
+    /* ========== ADMIN FUNCTIONS ========== */
+
+    /**
+     * @dev Adds a new candidate. Can only be done during registration phase.
+     */
+    function addCandidate(string memory _name) external onlyAdmin {
+        require(currentPhase == Phase.Registration, "Candidates can only be added during registration");
+        uint256 candidateId = candidates.length + 1;
+        candidates.push(Candidate({
+            id: candidateId,
+            name: _name,
+            voteCount: 0
+        }));
+        emit CandidateAdded(candidateId, _name);
     }
 
-    Phase public currentPhase = Phase.Registration;
-
-    /* ========== VOTERS ========== */
-    struct Voter {
-        bool registered;
-        bool hasVoted;
-        uint8 vote;
-    }
-
-    mapping(address => Voter) public voters;
-
-    uint256 public totalVotes;
-
-    /* ========== CANDIDATES ========== */
-    mapping(uint8 => uint256) private candidateVotes;
-
-    /* ========== EVENTS ========== */
-    event VoterRegistered(address voter);
-    event VoteCast(address voter, uint8 candidate);
-    event PhaseChanged(Phase newPhase);
-
-    /* ========== ADMIN CONTROLS ========== */
     function startVoting() external onlyAdmin {
-        require(currentPhase == Phase.Registration, "Invalid phase");
+        require(currentPhase == Phase.Registration, "Can only start voting from registration phase");
+        require(candidates.length > 0, "At least one candidate required");
         currentPhase = Phase.Voting;
         emit PhaseChanged(currentPhase);
     }
 
     function endElection() external onlyAdmin {
-        require(currentPhase == Phase.Voting, "Invalid phase");
+        require(currentPhase == Phase.Voting, "Can only end from voting phase");
         currentPhase = Phase.Ended;
         emit PhaseChanged(currentPhase);
     }
 
-    /* ========== REGISTRATION ========== */
     function registerVoter(address _voter) external onlyAdmin {
-        require(currentPhase == Phase.Registration, "Registration closed");
-        require(!voters[_voter].registered, "Already registered");
+        require(currentPhase == Phase.Registration, "Registration period closed");
+        require(!voters[_voter].registered, "Voter already registered");
 
-        voters[_voter] = Voter({
-            registered: true,
-            hasVoted: false,
-            vote: 0
-        });
-
+        voters[_voter].registered = true;
         emit VoterRegistered(_voter);
     }
 
-    /* ========== VOTING ========== */
-    function castVote(uint8 _candidate) external {
-        require(currentPhase == Phase.Voting, "Voting not active");
-        require(voters[msg.sender].registered, "Not registered");
-        require(!voters[msg.sender].hasVoted, "Already voted");
-        require(_candidate >= 1 && _candidate <= 3, "Invalid candidate");
+    /* ========== PUBLIC FUNCTIONS ========== */
+
+    /**
+     * @dev Casts a vote for a specific candidate.
+     */
+    function castVote(uint256 _candidateId) external {
+        require(currentPhase == Phase.Voting, "Voting is not active");
+        require(voters[msg.sender].registered, "Voter is not registered");
+        require(!voters[msg.sender].hasVoted, "Voter has already cast a vote");
+        require(_candidateId > 0 && _candidateId <= candidates.length, "Invalid candidate ID");
 
         voters[msg.sender].hasVoted = true;
-        voters[msg.sender].vote = _candidate;
-
-        candidateVotes[_candidate]++;
+        voters[msg.sender].votedCandidateId = _candidateId;
+        
+        candidates[_candidateId - 1].voteCount++;
         totalVotes++;
 
-        emit VoteCast(msg.sender, _candidate);
+        emit VoteCast(msg.sender, _candidateId);
     }
 
-    /* ========== RESULTS (READ-ONLY) ========== */
-    function getCandidateVotes(uint8 _candidate)
-        external
-        view
-        returns (uint256)
-    {
-        require(_candidate >= 1 && _candidate <= 3, "Invalid candidate");
-        return candidateVotes[_candidate];
+    /* ========== VIEW FUNCTIONS ========== */
+
+    function getCandidatesCount() external view returns (uint256) {
+        return candidates.length;
+    }
+
+    function getCandidate(uint256 _index) external view returns (uint256 id, string memory name, uint256 voteCount) {
+        require(_index < candidates.length, "Candidate index out of bounds");
+        Candidate memory c = candidates[_index];
+        return (c.id, c.name, c.voteCount);
     }
 
     function hasUserVoted(address _voter) external view returns (bool) {
         return voters[_voter].hasVoted;
     }
 
-    function getUserVote(address _voter) external view returns (uint8) {
-        require(currentPhase == Phase.Ended, "Election not ended");
-        require(voters[_voter].hasVoted, "User did not vote");
-        return voters[_voter].vote;
+    function getUserVote(address _voter) external view returns (uint256) {
+        require(currentPhase == Phase.Ended, "Election results are not yet public");
+        require(voters[_voter].hasVoted, "User has not voted");
+        return voters[_voter].votedCandidateId;
     }
 }

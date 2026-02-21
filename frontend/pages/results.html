@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Election Results | Blockchain Voting</title>
@@ -29,30 +30,23 @@
 
   <!-- MAIN -->
   <main>
-    <section class="panel results-panel">
+    <section class="panel" style="max-width: 600px;">
       <h2>📊 Election Results</h2>
 
-      <p class="results-note">
+      <p class="note">
         Results shown below are retrieved directly from the blockchain ledger.
         Once published, they cannot be modified.
       </p>
 
-      <div class="results-table">
-        <div class="result-row header">
-          <span>Candidate</span>
-          <span>Votes</span>
-        </div>
-
-        <div id="resultsContainer">
-          <div class="loading">Loading results...</div>
-        </div>
+      <div class="results-container" id="resultsContainer">
+        <div class="status-msg">Retrieving data from ledger...</div>
       </div>
 
-      <div class="total-votes">
-        Total Votes Cast: <strong id="totalVotes">–</strong>
+      <div class="note" style="margin-top: 30px; font-size: 1.1rem;">
+        Total Votes Cast: <strong id="totalVotes" style="color: var(--primary);">–</strong>
       </div>
 
-      <p class="results-warning">
+      <p class="note" style="margin-top: 40px; color: var(--text-dim);">
         ℹ️ Results are visible only after polling is completed.
       </p>
     </section>
@@ -66,4 +60,5 @@
   <!-- APP LOGIC (MUST LOAD AFTER DOM) -->
   <script type="module" src="../scripts/app.js"></script>
 </body>
+
 </html>
