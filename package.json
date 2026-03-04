@@ -12,7 +12,9 @@
     "contract:deploy": "node scripts/deploy-and-configure.js",
     "init-demo": "node backend/init-system.js",
     "test": "NODE_PATH=backend/node_modules node tests/system-test.js",
-    "test:backend": "cd backend && npm test"
+    "test:backend": "cd backend && npm test",
+    "check": "node scripts/check.js",
+    "demo": "NODE_PATH=backend/node_modules node scripts/demo-credentials.js"
   },
   "keywords": ["blockchain", "voting", "ethereum", "solidity", "ganache"],
   "author": "",

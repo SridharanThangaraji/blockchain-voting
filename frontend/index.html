@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>National Blockchain Voting System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/core.css" />
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -14,21 +17,24 @@
 </head>
 
 <body id="home">
+  <a href="#main" class="skip-link">Skip to main content</a>
   <!-- Background grid -->
   <div class="background-grid"></div>
 
   <!-- ================= HEADER ================= -->
   <header class="top-header">
     <div class="header-left">
-      <img src="assets/emblem.svg" alt="National Emblem" class="emblem" />
-      <div class="title-block">
-        <h1>National Electronic Voting System</h1>
-        <span>Blockchain-Secured Democratic Infrastructure</span>
-      </div>
+      <a href="index.html" aria-label="Go to dashboard">
+        <img src="assets/emblem.svg" alt="National Emblem" class="emblem" />
+        <div class="title-block">
+          <h1>National Electronic Voting System</h1>
+          <span>Blockchain-Secured Democratic Infrastructure</span>
+        </div>
+      </a>
     </div>
 
     <div class="header-right">
-      <div class="status-pill online">SYSTEM ONLINE</div>
+      <div class="status-pill online" aria-live="polite">SYSTEM ONLINE</div>
     </div>
   </header>
 
@@ -43,50 +49,51 @@
   </section>
 
   <!-- ================= MAIN DASHBOARD ================= -->
-  <main class="dashboard">
-
+  <main class="dashboard" id="main">
     <!-- Registration -->
-    <a href="pages/register.html" class="glass-card card">
+    <a href="pages/register.html" class="glass-card card" id="card-register" data-phase="register">
+      <span class="card-status available" aria-live="polite">Available</span>
       <div class="card-icon">🧾</div>
       <h3>Voter Registration</h3>
-      <p>
-        Enroll citizens into the electoral ledger using verified wallet identity.
-      </p>
-      <span class="card-status">AVAILABLE</span>
+      <p>Enroll citizens into the electoral ledger using verified wallet identity.</p>
     </a>
 
     <!-- Voting -->
-    <a href="pages/vote.html" class="glass-card card">
+    <a href="pages/vote.html" class="glass-card card" id="card-vote" data-phase="vote">
+      <span class="card-status available" aria-live="polite">Available</span>
       <div class="card-icon">🗳️</div>
       <h3>Cast Your Vote</h3>
-      <p>
-        Vote securely through blockchain-recorded transactions.
-        One vote per citizen.
-      </p>
-      <span class="card-status warning">RESTRICTED</span>
+      <p>Vote securely through blockchain-recorded transactions. One vote per citizen.</p>
     </a>
 
     <!-- Verification -->
-    <a href="pages/verify.html" class="glass-card card">
+    <a href="pages/verify.html" class="glass-card card" id="card-verify" data-phase="verify">
+      <span class="card-status available" aria-live="polite">Available</span>
       <div class="card-icon">🔍</div>
       <h3>Verify Vote</h3>
-      <p>
-        Validate your vote’s presence in the blockchain ledger using hashes.
-      </p>
-      <span class="card-status locked">LOCKED</span>
+      <p>Validate your vote’s presence in the blockchain ledger using hashes.</p>
     </a>
 
     <!-- Results -->
-    <a href="pages/results.html" class="glass-card card">
+    <a href="pages/results.html" class="glass-card card" id="card-results" data-phase="results">
+      <span class="card-status available" aria-live="polite">Available</span>
       <div class="card-icon">📊</div>
       <h3>Live Results</h3>
-      <p>
-        View immutable, real-time election results once polling closes.
-      </p>
-      <span class="card-status locked">LOCKED</span>
+      <p>View immutable, real-time election results once polling closes.</p>
     </a>
-
   </main>
+
+  <!-- ================= DEMO USERS (for demo day) ================= -->
+  <section class="demo-users-strip" id="demoUsersStrip">
+    <h3 class="demo-users-title">📋 Demo users</h3>
+    <p class="demo-users-note">Use these wallet addresses for Registration, Vote, and Verify. No passwords.</p>
+    <div id="demoAccountsList" class="demo-accounts-list">
+      <span class="demo-loading">Loading…</span>
+    </div>
+    <p class="demo-users-flow">
+      <strong>Demo flow:</strong> 1) Register with Voter 1 → 2) Home: click &quot;Start Voting&quot; → 3) Vote → 4) Verify with same address → 5) View Results
+    </p>
+  </section>
 
   <!-- ================= INFO STRIP ================= -->
   <section class="info-strip">

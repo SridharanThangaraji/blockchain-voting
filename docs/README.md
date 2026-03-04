@@ -13,6 +13,11 @@ Documentation for the decentralized blockchain-based voting system.
 | [Blockchain Basics](blockchain-basics.md) | Short intro to blockchain and Ethereum in this project |
 | [Conference Paper](conference-paper.md) | Research abstract and architecture summary |
 | [Review-1 Summary](review-1.md) | Review-1 implementation summary |
+| [Tech Stack](techstack.md) | Technology stack overview |
+| **Folders** | |
+| [review/](review/) | Project reports and review PDFs |
+| [ppt/](ppt/) | Presentation slides |
+| [screenshots/](screenshots/) | UI screenshots |
 
 ## Quick Start
 

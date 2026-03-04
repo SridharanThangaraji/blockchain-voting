@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voter Registration | Blockchain Voting</title>
-
-  <link rel="stylesheet" href="../css/core.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/pages.css">
-  <link rel="stylesheet" href="../css/register.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/core.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="stylesheet" href="../css/register.css" />
 </head>
 
 <body id="register">
@@ -16,54 +19,84 @@
 
   <header class="top-header">
     <div class="header-left">
-      <img src="../assets/emblem.svg" class="emblem" alt="Emblem">
-      <div class="title-block">
-        <h1>Electronic Voting System</h1>
-        <span>Voter Registration Portal</span>
-      </div>
+      <a href="../index.html" class="nav-back">Dashboard</a>
+      <a href="../index.html" class="header-brand" aria-label="Back to dashboard">
+        <img src="../assets/emblem.svg" class="emblem" alt="Emblem" />
+        <div class="title-block">
+          <h1>Electronic Voting System</h1>
+          <span>Voter Registration Portal</span>
+        </div>
+      </a>
     </div>
-
-    <div class="status-pill online">SYSTEM ONLINE</div>
+    <div class="header-right">
+      <div class="status-pill online" aria-live="polite">SYSTEM ONLINE</div>
+    </div>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main>
-    <section class="panel">
-      <h2>🧾 Voter Registration</h2>
+    <section class="panel panel-split">
+      <div class="panel-column">
+        <h2>🧾 Voter Registration</h2>
 
-      <p class="note">
-        This registration verifies your identity before you are allowed to
-        participate in the blockchain-based voting process.
-      </p>
+        <p class="note">
+          Link a verified wallet to a citizen identity. This is the only step required to participate in the blockchain-based election.
+        </p>
 
-      <form id="registerForm">
-        <label for="wallet">Wallet Address</label>
-        <input
-          type="text"
-          id="wallet"
-          placeholder="0xABC123... (Your blockchain wallet address)"
-        >
+        <form id="registerForm">
+          <label for="wallet">Wallet Address <span class="required">*</span></label>
+          <input
+            type="text"
+            id="wallet"
+            placeholder="0x... (e.g. from demo: npm run demo)"
+            autocomplete="off"
+            aria-required="true"
+          />
 
-        <label for="name">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Enter your full name"
-        >
+          <label for="name">Full Name <span class="optional">(optional)</span></label>
+          <input type="text" id="name" placeholder="For display only" autocomplete="name" />
 
-        <label for="id">Government ID Number</label>
-        <input
-          type="text"
-          id="id"
-          placeholder="Example: Aadhaar / Voter ID"
-        >
+          <label for="id">Government ID Number <span class="optional">(optional)</span></label>
+          <input type="text" id="id" placeholder="Example: Aadhaar / Voter ID" autocomplete="off" />
 
-        <button type="button" id="registerBtn" class="primary">
-          REGISTER CITIZEN
-        </button>
-      </form>
+          <button type="button" id="registerBtn" class="primary">
+            REGISTER CITIZEN
+          </button>
+        </form>
 
-      <div class="status-msg"></div>
+        <div class="status-msg" role="alert" aria-live="polite"></div>
+      </div>
+
+      <div class="panel-column panel-column-accent">
+        <h3 class="subheading">Biometric verification (demo only)</h3>
+        <p class="note note-small">
+          In a real deployment, this step would capture a live selfie, perform liveness detection, and compare against government records.
+          For this prototype, we provide a **futuristic interface only** – no AI model runs in the browser.
+        </p>
+
+        <div class="face-scan-card">
+          <div class="face-frame">
+            <div class="face-oval"></div>
+            <span class="face-instruction">Align your face within the frame</span>
+            <span class="face-overlay-dot face-overlay-dot--tl"></span>
+            <span class="face-overlay-dot face-overlay-dot--tr"></span>
+            <span class="face-overlay-dot face-overlay-dot--bl"></span>
+            <span class="face-overlay-dot face-overlay-dot--br"></span>
+          </div>
+
+          <div class="face-actions">
+            <button type="button" id="openFaceScan" class="secondary">
+              OPEN CAMERA (DEMO)
+            </button>
+            <span id="faceScanStatus" class="face-status">
+              No biometric sample captured yet.
+            </span>
+          </div>
+
+          <p class="note note-small">
+            During the live demo, you can click <strong>OPEN CAMERA (DEMO)</strong> to simulate a successful face capture.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 

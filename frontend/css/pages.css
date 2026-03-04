@@ -1,14 +1,32 @@
 /* Panel / Container */
 .panel {
   max-width: 480px;
-  margin: 60px auto;
-  padding: 40px;
+  margin: 40px auto;
+  padding: 28px 24px;
   background: var(--glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Registration page: wider, split layout container */
+body#register .panel {
+  max-width: 960px;
+  width: min(960px, 100% - 32px);
+}
+
+@media (min-width: 480px) {
+  body#register .panel {
+    margin: 60px auto;
+  }
+}
+@media (min-width: 480px) {
+  .panel {
+    margin: 60px auto;
+    padding: 40px;
+  }
 }
 
 h2 {
@@ -22,29 +40,54 @@ h2 {
   -webkit-text-fill-color: transparent;
 }
 
+/* Register page: left-align title and body copy inside the split panel */
+body#register h2 {
+  text-align: left;
+}
+
+body#register .panel .note {
+  text-align: left;
+}
+
 /* Forms */
+label {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  color: var(--text-main);
+}
+label:first-of-type {
+  margin-top: 0;
+}
+.required { color: var(--danger); }
+.optional { font-size: 0.8rem; color: var(--text-dim); font-weight: 400; }
+
 input {
   width: 100%;
-  padding: 14px 20px;
-  margin-top: 10px;
-  background: rgba(0, 0, 0, 0.2);
+  padding: 14px 18px;
+  margin-top: 8px;
+  background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   color: #fff;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 input:focus {
   outline: none;
   border-color: var(--primary);
-  background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.1);
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.12);
 }
 
 button.primary {
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   margin-top: 24px;
   background: linear-gradient(135deg, var(--secondary), var(--primary));
   border: none;
@@ -54,17 +97,22 @@ button.primary {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 210, 255, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
 }
 
-button.primary:hover {
+button.primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4);
-  filter: brightness(1.1);
+  box-shadow: 0 14px 32px rgba(0, 210, 255, 0.35);
+  filter: brightness(1.08);
 }
 
-button.primary:active {
+button.primary:active:not(:disabled) {
   transform: translateY(0);
+}
+
+button.primary.loading {
+  cursor: wait;
 }
 
 /* Voting Grid */
@@ -79,17 +127,36 @@ button.primary:active {
   justify-content: space-between;
   align-items: center;
   padding: 18px 24px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.vote-option:hover {
-  background: rgba(255, 255, 255, 0.08);
+.vote-option:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 210, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.vote-option.selected,
+.vote-option:focus-visible {
   border-color: var(--primary);
-  transform: scale(1.02);
+  box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.2);
+}
+
+.vote-option.loading {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.vote-option.disabled,
+.vote-grid.disabled .vote-option {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
 }
 
 .vote-option strong {
@@ -110,28 +177,40 @@ button.primary:active {
 }
 
 .result-card {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
   border: 1px solid var(--glass-border);
+  transition: transform 0.2s ease;
+}
+
+.result-card:hover {
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .result-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.result-info strong {
+  font-size: 1.05rem;
+  color: #fff;
 }
 
 .progress-bar {
-  height: 8px;
+  height: 10px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(to right, var(--secondary), var(--primary));
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  border-radius: 6px;
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -143,22 +222,63 @@ button.primary:active {
   margin-top: 20px;
 }
 
+.note.note-small {
+  font-size: 0.8rem;
+  margin-top: 6px;
+  text-align: left;
+  opacity: 0.9;
+}
+
+.subheading {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-top: 10px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.secondary {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 210, 255, 0.5);
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.secondary:hover {
+  background: rgba(0, 210, 255, 0.12);
+}
+
 .status-msg {
   text-align: center;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 14px 16px;
+  border-radius: 10px;
   margin-top: 20px;
   font-weight: 600;
+  font-size: 0.95rem;
+  min-height: 2.5em;
+}
+
+.status-msg:empty {
+  display: none;
 }
 
 .status-msg.success {
-  background: rgba(0, 255, 136, 0.1);
+  background: rgba(0, 255, 136, 0.12);
   color: var(--success);
+  border: 1px solid rgba(0, 255, 136, 0.25);
 }
 
 .status-msg.error {
-  background: rgba(255, 68, 68, 0.1);
+  background: rgba(255, 107, 107, 0.12);
   color: var(--danger);
+  border: 1px solid rgba(255, 107, 107, 0.25);
 }
 
 /* Admin Controls */

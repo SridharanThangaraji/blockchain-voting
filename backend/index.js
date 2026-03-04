@@ -5,6 +5,7 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || "0.0.0.0";
 const FRONTEND_DIR = path.join(__dirname, "..", "frontend");
 
 // Middlewares
@@ -28,7 +29,7 @@ app.get("/{*path}", (req, res) => {
   res.status(404).json({ message: "Not found" });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   console.log(`Backend running at http://localhost:${PORT}`);
   console.log(`Frontend served at http://localhost:${PORT}`);
 });

@@ -30,6 +30,29 @@ npm start
 
 Then open **http://localhost:3000** in your browser.
 
+### Demo credentials (for live demo)
+
+There are **no usernames or passwords**. The app uses **Ethereum wallet addresses** from the local Ganache chain.
+
+**Get addresses after starting the stack:**
+
+```bash
+# Terminal 1: start the app
+npm start
+
+# Terminal 2: print demo wallets
+npm run demo
+```
+
+Use **Voter 1** (or any address except the first) in the UI:
+
+- **Register** — paste the “Voter 1” address and click **REGISTER CITIZEN**
+- **Vote** — the same wallet is remembered after registration; open **Vote** and choose a candidate
+- **Verify** — paste the same address to see “vote secured on ledger”
+- **Results** — view live counts
+
+**Demo flow:** Register → go to Home and click **Start Voting** → Vote → Verify → Results. Use a second address (e.g. Voter 2) to register and vote again to see multiple votes in Results.
+
 ## Scripts (root)
 
 | Command | Description |
@@ -41,6 +64,8 @@ Then open **http://localhost:3000** in your browser.
 | `npm run contract:deploy` | Deploy to Ganache and write `CONTRACT_ADDRESS` to `backend/.env` |
 | `npm run init-demo` | Add demo candidates (run after deploy) |
 | `npm test` | Run system tests (backend + Ganache must be running) |
+| `npm run check` | Health check: Ganache, backend API, and frontend routes |
+| `npm run demo` | Print demo wallet addresses (run after `npm start` in another terminal) |
 
 ## Project structure
 
@@ -65,6 +90,7 @@ Full documentation is in **[docs/](docs/README.md)**:
 - [API reference](docs/API.md) — REST endpoints
 - [Smart contract](docs/smart-contract.md) — Contract behavior and phases
 - [Conference paper](docs/conference-paper.md) — Research summary
+- Project reports & reviews: see `docs/review/`
 
 ## License
 

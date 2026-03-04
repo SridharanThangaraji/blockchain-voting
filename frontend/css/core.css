@@ -1,38 +1,84 @@
 :root {
-  --primary: #00d2ff;
-  --secondary: #3a7bd5;
-  --accent: #00f2fe;
-  --background: #020b1e;
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --text-main: #e0e0e0;
-  --text-dim: #a0a0a0;
-  --success: #00ff88;
-  --warning: #ffcc00;
-  --danger: #ff4444;
+  /* Futuristic violet–teal theme */
+  --primary: #7c3aed;       /* violet */
+  --secondary: #22c55e;     /* emerald */
+  --accent: #22d3ee;        /* cyan */
+  --background: #050816;    /* deep space */
+  --glass: rgba(15, 23, 42, 0.78);
+  --glass-border: rgba(148, 163, 184, 0.4);
+  --text-main: #e5e7eb;
+  --text-dim: #9ca3af;
+  --success: #22c55e;
+  --warning: #facc15;
+  --danger: #f97373;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
-  background: radial-gradient(circle at top right, #0a1a3f, #020b1e), #020b1e;
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1e1b4b, transparent 55%),
+    radial-gradient(circle at 80% 80%, #0369a1 0%, transparent 55%),
+    var(--background);
   color: var(--text-main);
   overflow-x: hidden;
   line-height: 1.6;
+  font-family: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+  color: #fff;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: #020b1e;
+  font-weight: 700;
+  border-radius: var(--radius);
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:disabled,
+button.loading {
+  cursor: not-allowed;
+  opacity: 0.75;
 }
 
 .background-grid {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 210, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 210, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
   background-size: 50px 50px;
   z-index: -1;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
@@ -50,16 +96,20 @@ button {
 
 .glass-card {
   background: var(--glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(0, 210, 255, 0.3);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(0, 210, 255, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.glass-card:active {
+  transform: translateY(-2px);
 }

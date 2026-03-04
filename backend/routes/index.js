@@ -9,6 +9,7 @@ const verify = require("./verify");
 const candidates = require("./candidates");
 const status = require("./status");
 const admin = require("./admin");
+const demo = require("./demo");
 
 /*
   Main API Routes
@@ -20,5 +21,6 @@ router.use("/verify", verify);
 router.use("/candidates", candidates);
 router.use("/status", status);
 router.use("/admin", admin);
+router.use("/demo-accounts", demo);
 
 module.exports = router;

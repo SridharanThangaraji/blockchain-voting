@@ -1,37 +1,58 @@
 /* register.css */
 
-.register-note {
-  margin: 14px 0 18px;
-  font-size: 0.9rem;
-  color: #9fb4ff;
-  line-height: 1.5;
+.panel-split {
+  display: grid;
+  gap: 24px;
 }
 
-.panel h2 {
-  margin-bottom: 8px;
+@media (min-width: 900px) {
+  .panel-split {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+}
+
+.panel-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-column-accent {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-left: 24px;
+  margin-top: 8px;
+}
+
+@media (max-width: 899px) {
+  .panel-column-accent {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-left: 0;
+    padding-top: 24px;
+    margin-top: 24px;
+  }
 }
 
 form label {
   display: block;
   font-size: 0.85rem;
   margin-top: 14px;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 form input {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 form input::placeholder {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 form button {
   margin-top: 18px;
   font-weight: 600;
-  background: linear-gradient(135deg,#2563eb,#1e40af);
+  background: linear-gradient(135deg, #2563eb, #1e40af);
 }
 
 form button.loading {
@@ -39,7 +60,84 @@ form button.loading {
   pointer-events: none;
 }
 
-.form-status {
-  margin-top: 14px;
-  font-size: 0.9rem;
+.face-scan-card {
+  margin-top: 10px;
+  padding: 18px 16px 16px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top, rgba(0, 210, 255, 0.2), transparent 55%),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
+
+.face-frame {
+  position: relative;
+  margin: 8px auto 18px;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  border: 1px dashed rgba(0, 210, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1), transparent 70%);
+}
+
+.face-oval {
+  width: 58%;
+  height: 72%;
+  border-radius: 50% / 60%;
+  border: 2px solid rgba(0, 210, 255, 0.75);
+  box-shadow: 0 0 40px rgba(0, 210, 255, 0.5);
+}
+
+.face-instruction {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--text-main);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.face-overlay-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.8);
+}
+
+.face-overlay-dot--tl {
+  top: 8px;
+  left: 10px;
+}
+.face-overlay-dot--tr {
+  top: 8px;
+  right: 10px;
+}
+.face-overlay-dot--bl {
+  bottom: 8px;
+  left: 10px;
+}
+.face-overlay-dot--br {
+  bottom: 8px;
+  right: 10px;
+}
+
+.face-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.face-status {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+

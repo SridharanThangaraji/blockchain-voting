@@ -42,6 +42,9 @@ export const api = {
   status: () =>
     request("/status"),
 
+  demoAccounts: () =>
+    request("/demo-accounts"),
+
   startVoting: () =>
     request("/admin/start", "POST"),
 

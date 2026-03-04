@@ -3,31 +3,35 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verify Vote | Blockchain Voting</title>
-
-  <link rel="stylesheet" href="../css/core.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/pages.css">
-  <link rel="stylesheet" href="../css/verify.css">
-
-  <script type="module" src="../scripts/app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/core.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="stylesheet" href="../css/verify.css" />
 </head>
 
 <body id="verify">
   <div class="background-grid"></div>
 
-  <!-- HEADER -->
   <header class="top-header">
     <div class="header-left">
-      <img src="../assets/emblem.svg" class="emblem" alt="Emblem">
-      <div class="title-block">
-        <h1>Electronic Voting System</h1>
-        <span>Vote Verification Portal</span>
-      </div>
+      <a href="../index.html" class="nav-back">Dashboard</a>
+      <a href="../index.html" class="header-brand" aria-label="Back to dashboard">
+        <img src="../assets/emblem.svg" class="emblem" alt="Emblem" />
+        <div class="title-block">
+          <h1>Electronic Voting System</h1>
+          <span>Vote Verification Portal</span>
+        </div>
+      </a>
     </div>
-
-    <div class="status-pill online">SYSTEM ONLINE</div>
+    <div class="header-right">
+      <div class="status-pill online" aria-live="polite">SYSTEM ONLINE</div>
+    </div>
   </header>
 
   <!-- MAIN -->
@@ -42,15 +46,15 @@
       </p>
 
       <form id="verifyForm">
-        <label for="wallet">Wallet Address</label>
-        <input type="text" id="wallet" placeholder="0xABC123..." required>
+        <label for="wallet">Wallet Address <span class="required">*</span></label>
+        <input type="text" id="wallet" placeholder="0x... (same address you used to vote)" required autocomplete="off" aria-required="true" />
 
         <button type="submit" class="primary">
           VERIFY VOTE
         </button>
       </form>
 
-      <div class="status-msg"></div>
+      <div class="status-msg" role="alert" aria-live="polite"></div>
 
       <p class="note" style="margin-top: 40px; color: var(--text-dim);">
         ℹ️ Vote contents remain secret.
@@ -63,6 +67,8 @@
   <footer class="footer">
     UG Final Year Project • Blockchain Voting • 2026
   </footer>
-</body>
 
+  <!-- APP LOGIC (MUST LOAD AFTER DOM) -->
+  <script type="module" src="../scripts/app.js"></script>
+</body>
 </html>

@@ -6,3 +6,82 @@
   max-width: 1200px;
   margin: auto;
 }
+
+/* Demo users strip (demo day) */
+.demo-users-strip {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 28px 24px;
+  background: rgba(0, 210, 255, 0.06);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-radius: 16px;
+}
+
+.demo-users-title {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.demo-users-note {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.demo-accounts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-bottom: 16px;
+}
+
+.demo-account {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demo-role {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.demo-address {
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  user-select: all;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.demo-address:hover {
+  border-color: var(--primary);
+  background: rgba(0, 210, 255, 0.08);
+}
+
+.demo-address.copied {
+  border-color: var(--success);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.demo-users-flow {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.demo-loading,
+.demo-error {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}

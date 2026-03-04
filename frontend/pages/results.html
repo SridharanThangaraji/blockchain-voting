@@ -3,29 +3,35 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Election Results | Blockchain Voting</title>
-
-  <link rel="stylesheet" href="../css/core.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/pages.css">
-  <link rel="stylesheet" href="../css/results.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/core.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="stylesheet" href="../css/results.css" />
 </head>
 
 <body id="results">
   <div class="background-grid"></div>
 
-  <!-- HEADER -->
   <header class="top-header">
     <div class="header-left">
-      <img src="../assets/emblem.svg" class="emblem" alt="Emblem">
-      <div class="title-block">
-        <h1>Electronic Voting System</h1>
-        <span>Live Election Results</span>
-      </div>
+      <a href="../index.html" class="nav-back">Dashboard</a>
+      <a href="../index.html" class="header-brand" aria-label="Back to dashboard">
+        <img src="../assets/emblem.svg" class="emblem" alt="Emblem" />
+        <div class="title-block">
+          <h1>Electronic Voting System</h1>
+          <span>Live Election Results</span>
+        </div>
+      </a>
     </div>
-
-    <div class="status-pill online">SYSTEM ONLINE</div>
+    <div class="header-right">
+      <div class="status-pill online" aria-live="polite">SYSTEM ONLINE</div>
+    </div>
   </header>
 
   <!-- MAIN -->
