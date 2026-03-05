@@ -1,16 +1,16 @@
 :root {
-  /* Futuristic violet–teal theme */
-  --primary: #7c3aed;       /* violet */
-  --secondary: #22c55e;     /* emerald */
-  --accent: #22d3ee;        /* cyan */
-  --background: #050816;    /* deep space */
-  --glass: rgba(15, 23, 42, 0.78);
-  --glass-border: rgba(148, 163, 184, 0.4);
-  --text-main: #e5e7eb;
-  --text-dim: #9ca3af;
+  /* Warm neutral theme (no blue/white emphasis) */
+  --primary: #b45309;       /* deep amber */
+  --secondary: #16a34a;     /* rich green */
+  --accent: #eab308;        /* golden accent */
+  --background: #111827;    /* dark slate background */
+  --glass: rgba(31, 41, 55, 0.9);
+  --glass-border: rgba(156, 163, 175, 0.5);
+  --text-main: #f9fafb;     /* near-white text, but on dark bg */
+  --text-dim: #9ca3af;      /* muted gray text */
   --success: #22c55e;
-  --warning: #facc15;
-  --danger: #f97373;
+  --warning: #f59e0b;
+  --danger: #f97316;
   --radius: 14px;
   --radius-lg: 20px;
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -28,8 +28,8 @@ html {
 
 body {
   min-height: 100vh;
-  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1e1b4b, transparent 55%),
-    radial-gradient(circle at 80% 80%, #0369a1 0%, transparent 55%),
+  background: radial-gradient(ellipse 120% 80% at 50% -30%, #1f2933, transparent 60%),
+    radial-gradient(circle at 80% 100%, #27272a 0%, transparent 55%),
     var(--background);
   color: var(--text-main);
   overflow-x: hidden;
@@ -38,7 +38,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 58, 237, 0.35);
+  background: rgba(180, 83, 9, 0.4);
   color: #fff;
 }
 
@@ -77,8 +77,8 @@ button.loading {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(55, 65, 81, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55, 65, 81, 0.18) 1px, transparent 1px);
   background-size: 50px 50px;
   z-index: -1;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
