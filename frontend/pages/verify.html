@@ -29,9 +29,7 @@
         </div>
       </a>
     </div>
-    <div class="header-right">
-      <div class="status-pill online" aria-live="polite">SYSTEM ONLINE</div>
-    </div>
+    <div class="header-right"></div>
   </header>
 
   <!-- MAIN -->
@@ -47,9 +45,12 @@
 
       <form id="verifyForm">
         <label for="wallet">Wallet Address <span class="required">*</span></label>
-        <input type="text" id="wallet" placeholder="0x... (same address you used to vote)" required autocomplete="off" aria-required="true" />
+        <div class="wallet-input-row">
+          <input type="text" id="wallet" placeholder="0x... (same address you used to vote)" required autocomplete="off" aria-required="true" />
+          <button type="button" id="scanQrBtnVerify" class="secondary wallet-scan-btn" title="Scan QR code from your phone">📷 Scan QR</button>
+        </div>
 
-        <button type="submit" class="primary">
+        <button type="submit" class="primary" style="margin-top:14px;">
           VERIFY VOTE
         </button>
       </form>
@@ -68,7 +69,22 @@
     UG Final Year Project • Blockchain Voting • 2026
   </footer>
 
+  <!-- QR Scanner Modal (verify) -->
+  <div id="qrScanModalVerify" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Scan Wallet QR Code">
+    <div class="modal-box">
+      <h3>📷 Scan Wallet QR Code</h3>
+      <p class="note note-small" style="margin-bottom:12px;">Show your wallet QR code to the camera</p>
+      <div class="qr-camera-wrap">
+        <video id="qrVideoVerify" autoplay playsinline muted></video>
+        <div class="qr-aim-box"></div>
+      </div>
+      <p id="qrScanStatusVerify" class="qr-status">Initializing camera…</p>
+      <button type="button" id="closeQrBtnVerify" class="secondary" style="width:100%;">✗ Cancel</button>
+    </div>
+  </div>
+
   <!-- APP LOGIC (MUST LOAD AFTER DOM) -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
   <script type="module" src="../scripts/app.js"></script>
 </body>
 </html>

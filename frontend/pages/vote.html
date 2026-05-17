@@ -29,9 +29,7 @@
         </div>
       </a>
     </div>
-    <div class="header-right">
-      <div class="status-pill online" aria-live="polite">SYSTEM ONLINE</div>
-    </div>
+    <div class="header-right"></div>
   </header>
 
   <!-- MAIN -->
@@ -46,14 +44,17 @@
 
       <div class="vote-wallet-block">
         <label for="voteWallet">Wallet Address <span class="required">*</span></label>
-        <input
-          type="text"
-          id="voteWallet"
-          placeholder="0x... (registered voter wallet)"
-          autocomplete="off"
-        />
+        <div class="wallet-input-row">
+          <input
+            type="text"
+            id="voteWallet"
+            placeholder="0x... (registered voter wallet)"
+            autocomplete="off"
+          />
+          <button type="button" id="scanQrBtn" class="secondary wallet-scan-btn" title="Scan QR code from your phone">📷 Scan QR</button>
+        </div>
         <p class="note note-small">
-          Tip: this field is pre-filled from your last registration when available. You can paste any other registered wallet to vote on its behalf.
+          Tip: pre-filled from last registration. Type/paste a wallet address or tap <strong>Scan QR</strong> to scan a QR code displayed on your phone.
         </p>
       </div>
 
@@ -79,6 +80,40 @@
     UG Final Year Project • Secure Blockchain Voting • 2026
   </footer>
 
+  <!-- QR Scanner Modal -->
+  <div id="qrScanModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Scan Wallet QR Code">
+    <div class="modal-box">
+      <h3>📷 Scan Wallet QR Code</h3>
+      <p class="note note-small" style="margin-bottom:12px;">Display your wallet address as a QR code on your phone and hold it up to the camera</p>
+      <div class="qr-camera-wrap">
+        <video id="qrVideo" autoplay playsinline muted></video>
+        <div class="qr-aim-box"></div>
+      </div>
+      <p id="qrScanStatus" class="qr-status">Initializing camera…</p>
+      <button type="button" id="closeQrBtn" class="secondary" style="width:100%;">✗ Cancel</button>
+    </div>
+  </div>
+
+  <!-- Vote Confirmation Modal -->
+  <div id="voteConfirmModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Confirm Vote">
+    <div class="modal-box confirm-modal">
+      <div class="confirm-icon-large">🗳️</div>
+      <h3>Confirm Your Vote</h3>
+      <p class="confirm-label">You are about to vote for:</p>
+      <div class="confirm-candidate-name" id="confirmCandidateName">—</div>
+      <div class="confirm-wallet-row">
+        <span class="confirm-wallet-label">Wallet: </span>
+        <code class="confirm-wallet-addr" id="confirmWalletAddr"></code>
+      </div>
+      <p class="confirm-warning">⚠️ This action is permanent and cannot be undone once submitted.</p>
+      <div class="confirm-buttons">
+        <button type="button" id="confirmVoteBtn" class="primary">✓ Confirm Vote</button>
+        <button type="button" id="cancelVoteBtn" class="secondary">✗ Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
   <script type="module" src="../scripts/app.js"></script>
 </body>
 </html>

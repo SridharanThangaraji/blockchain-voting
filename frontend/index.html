@@ -33,9 +33,7 @@
       </a>
     </div>
 
-    <div class="header-right">
-      <div class="status-pill online" aria-live="polite">SYSTEM ONLINE</div>
-    </div>
+    <div class="header-right"></div>
   </header>
 
   <!-- ================= HERO ================= -->
@@ -122,7 +120,8 @@
 
   <!-- Admin Controls (Context Aware) -->
   <div id="adminPanel" class="admin-panel" style="display: none;">
-    <button id="startVotingBtn" class="primary">START VOTING PHASE</button>
+    <button id="startVotingBtn" class="primary" style="display:none;">START VOTING PHASE</button>
+    <button id="stopVotingBtn" class="primary" style="display:none; background: linear-gradient(135deg, #dc2626, #991b1b);">STOP VOTING PHASE</button>
   </div>
 
   <!-- Core UI logic -->
